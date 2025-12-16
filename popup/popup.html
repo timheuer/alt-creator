@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alt Text Creator Settings</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+      </div>
+      <h1>Alt Text Creator</h1>
+    </header>
+
+    <main class="popup-main">
+      <div class="status-badge" id="statusBadge">
+        <span class="status-dot"></span>
+        <span class="status-text">Not configured</span>
+      </div>
+
+      <div class="form-group">
+        <label for="apiKey">OpenAI API Key</label>
+        <div class="input-wrapper">
+          <input 
+            type="password" 
+            id="apiKey" 
+            placeholder="sk-..."
+            autocomplete="off"
+          />
+          <button type="button" class="toggle-visibility" id="toggleVisibility" aria-label="Toggle visibility">
+            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          </button>
+        </div>
+        <p class="helper-text">
+          Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="modelSelect">
+          AI Model
+          <button type="button" class="refresh-models-btn" id="refreshModelsBtn" title="Refresh models list">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </button>
+        </label>
+        <select id="modelSelect" disabled>
+          <option value="">Enter API key to load models...</option>
+        </select>
+        <p class="helper-text model-helper" id="modelHelper">Vision-capable models for image analysis</p>
+      </div>
+
+      <button class="save-btn" id="saveBtn">
+        <span class="btn-text">Save Settings</span>
+        <span class="btn-loading" style="display: none;">
+          <svg class="spinner" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </button>
+
+      <div class="message" id="message"></div>
+    </main>
+
+    <footer class="popup-footer">
+      <p>Look for the <span class="highlight">purple button</span> on images</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

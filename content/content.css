@@ -1,0 +1,277 @@
+/* Alt Text Creator - Content Styles */
+
+/* Adorner button */
+.alt-creator-adorner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647; /* Maximum z-index to ensure visibility */
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  pointer-events: auto;
+}
+
+.alt-creator-adorner:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+}
+
+.alt-creator-adorner:active {
+  transform: scale(0.95);
+}
+
+.alt-creator-adorner svg {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+/* Modal overlay */
+#alt-creator-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#alt-creator-modal.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal content */
+.alt-creator-modal-content {
+  background: #1a1a2e;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+#alt-creator-modal.visible .alt-creator-modal-content {
+  transform: scale(1) translateY(0);
+}
+
+/* Modal header */
+.alt-creator-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.alt-creator-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.alt-creator-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.alt-creator-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Modal body */
+.alt-creator-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Image preview */
+.alt-creator-image-preview {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f0f1a;
+  max-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alt-creator-image-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+/* Loading state */
+.alt-creator-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  color: #a0a0b0;
+}
+
+.alt-creator-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(102, 126, 234, 0.2);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: alt-creator-spin 1s linear infinite;
+}
+
+@keyframes alt-creator-spin {
+  to { transform: rotate(360deg); }
+}
+
+.alt-creator-loading p {
+  margin: 16px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Text container */
+.alt-creator-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.alt-creator-text-container label {
+  color: #a0a0b0;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+#alt-creator-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px;
+  border: 2px solid #2a2a4a;
+  border-radius: 10px;
+  background: #0f0f1a;
+  color: #e0e0e0;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+#alt-creator-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.alt-creator-char-count {
+  text-align: right;
+  font-size: 12px;
+  color: #707080;
+  margin-top: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Error state */
+.alt-creator-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.alt-creator-error-message {
+  color: #ef4444;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Modal footer */
+.alt-creator-modal-footer {
+  padding: 16px 20px;
+  background: #0f0f1a;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  border-top: 1px solid #2a2a4a;
+}
+
+/* Buttons */
+.alt-creator-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.alt-creator-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.alt-creator-btn-primary:hover {
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transform: translateY(-1px);
+}
+
+.alt-creator-btn-primary.copied {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.alt-creator-btn-secondary {
+  background: #2a2a4a;
+  color: #e0e0e0;
+}
+
+.alt-creator-btn-secondary:hover {
+  background: #3a3a5a;
+}
+
+/* Ensure wrapper doesn't break layouts */
+.alt-creator-wrapper {
+  display: contents;
+}

@@ -53,3 +53,7 @@ icons/*.bak
 # Chrome/Edge extension development
 *.pem
 key.pem
+
+# Instruction files
+store/*.md
+store/*.zip

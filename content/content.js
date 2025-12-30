@@ -14,7 +14,10 @@ const ALT_CREATOR_CONFIG = {
       '[data-testid="attachments"]',           // Attached media in compose
       '[data-testid="tweetCompose"]',          // Compose tweet area
       '[aria-label*="Compose"]',               // Compose dialogs
-      '[data-testid="cellInnerDiv"] [data-testid="tweetPhoto"]' // Quote tweet with media
+      '[data-testid="cellInnerDiv"] [data-testid="tweetPhoto"]', // Quote tweet with media
+      '[aria-labelledby*="modal-header"]',     // Edit image description modal
+      '[data-testid="altTextInput"]',          // Alt text input area (parent)
+      '[role="dialog"]'                        // Any dialog (includes alt text editor)
     ],
     'instagram.com': [
       '[role="dialog"] img',                   // Create post modal

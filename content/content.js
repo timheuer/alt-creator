@@ -7,7 +7,22 @@ const ALT_CREATOR_CONFIG = {
   minImageSize: 50,
   adornerSize: 28,
   debounceMs: 500,
-  observerThrottle: 100
+  observerThrottle: 100,
+  // Selectors for post composition areas on each site
+  composeSelectors: {
+    'x.com': [
+      '[data-testid="attachments"]',           // Attached media in compose
+      '[data-testid="tweetCompose"]',          // Compose tweet area
+      '[aria-label*="Compose"]',               // Compose dialogs
+      '[data-testid="cellInnerDiv"] [data-testid="tweetPhoto"]' // Quote tweet with media
+    ],
+    'instagram.com': [
+      '[role="dialog"] img',                   // Create post modal
+      '[aria-label*="Create"]',                // Create new post dialog
+      '[aria-label*="Edit"]',                  // Edit post dialog
+      'form img'                               // Form-based image uploads
+    ]
+  }
 };
 
 class AltTextCreator {
@@ -268,7 +283,39 @@ class AltTextCreator {
       return false;
     }
 
+    // Only show on images in post composition areas
+    if (!this.isInComposeArea(img)) {
+      return false;
+    }
+
     return true;
+  }
+
+  isInComposeArea(img) {
+    const hostname = window.location.hostname;
+    
+    // Determine which site we're on
+    let siteKey = null;
+    if (hostname.includes('x.com') || hostname.includes('twitter.com')) {
+      siteKey = 'x.com';
+    } else if (hostname.includes('instagram.com')) {
+      siteKey = 'instagram.com';
+    }
+
+    if (!siteKey) return false;
+
+    const selectors = ALT_CREATOR_CONFIG.composeSelectors[siteKey];
+    if (!selectors) return false;
+
+    // Check if image is within any compose area selector
+    for (const selector of selectors) {
+      // Check if image matches or is inside the selector
+      if (img.closest(selector) || img.matches(selector)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   addAdorner(img) {

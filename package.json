@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "package": "pwsh -File package.ps1"
+    "package": "pwsh -File scripts/package.ps1",
+    "get-version": "pwsh -File scripts/get-version.ps1"
   }
 }

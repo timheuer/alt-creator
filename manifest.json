@@ -1,12 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Alt Text Creator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate AI-powered alt text descriptions for images on social media",
   "author": "Tim Heuer",
   "homepage_url": "https://github.com/timheuer/alt-creator",
   "permissions": [
-    "activeTab",
     "storage"
   ],
   "host_permissions": [

@@ -1,0 +1,11 @@
+{
+  "name": "alt-creator",
+  "version": "0.1.1",
+  "description": "Generate AI-powered alt text descriptions for images on social media",
+  "author": "Tim Heuer",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "package": "pwsh -File package.ps1"
+  }
+}
